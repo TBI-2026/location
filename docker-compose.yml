@@ -1,10 +1,14 @@
 version: '3.8'
 
 services:
-  titiksinggah:
-    image: titiksinggah:latest
-    container_name: titiksinggah
-    ports:
-      - "127.0.0.1:5000:5000"
+  location:
+    image: location:latest
+    container_name: location
     env_file:
       - .env
+    networks:
+      - internal-network
+
+networks:
+  internal-network:
+    external: true
